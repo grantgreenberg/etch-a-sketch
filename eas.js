@@ -12,10 +12,13 @@ function createGrid(size = 16) {
             let itemDiv = document.createElement('div');
             itemDiv.setAttribute('style', `flex: 1; border: 1px solid black; height: ${hw}px; width: ${hw}px; margin: 0; padding: 0;`)
             containerDiv.appendChild(itemDiv);
+            itemDiv.addEventListener('mouseover', () => {
+                itemDiv.setAttribute('style', `flex: 1; border: 1px solid black; height: ${hw}px; width: ${hw}px; margin: 0; padding: 0; background-color: black;`)
+            });
         }
     }
 }
 
 window.addEventListener('load', (event) => {
-    createGrid();
+    createGrid(32);
 });
