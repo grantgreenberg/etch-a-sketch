@@ -1,12 +1,12 @@
 function createGrid(size = 16) {
 
     let body = document.querySelector('body');
-    body.classList.add('body');
+    body.setAttribute('style', 'max-width: 960px; margin: auto;');
 
     for (let i=0;i<size;i++) {
         let hw = 960 / size;
         let containerDiv = document.createElement('div');
-        containerDiv.style.height = ${hw};
+        containerDiv.setAttribute('style', `display: flex; margin: 0; padding: 0; height: ${hw}px;`);
         body.appendChild(containerDiv);
         for (let j=0;j<size;j++) {
             let itemDiv = document.createElement('div');
