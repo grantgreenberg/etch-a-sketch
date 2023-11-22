@@ -1,0 +1,17 @@
+.body {
+    max-width: 960px; 
+    margin: auto;
+}
+
+.containerDiv {
+    display: flex; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.itemDiv {
+    flex: 1; 
+    border: 1px solid black; 
+    margin: 0; 
+    padding: 0;
+}

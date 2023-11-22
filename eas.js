@@ -2,7 +2,7 @@ function createGrid(size = 16) {
 
     let body = document.querySelector('body');
     removeAllChildNodes(body);
-    body.setAttribute('style', 'max-width: 960px; margin: auto;');
+    body.classList.add('body');
 
     let setGridSizeButton = document.createElement('button');
     setGridSizeButton.textContent = 'Set Grid Size';
@@ -15,11 +15,14 @@ function createGrid(size = 16) {
     for (let i=0;i<size;i++) {
         let hw = 960 / size;
         let containerDiv = document.createElement('div');
-        containerDiv.setAttribute('style', `display: flex; margin: 0; padding: 0; height: ${hw}px;`);
+        containerDiv.classList.add('containerDiv');
+        containerDiv.style.height = `${hw}px`;
         body.appendChild(containerDiv);
         for (let j=0;j<size;j++) {
             let itemDiv = document.createElement('div');
-            itemDiv.setAttribute('style', `flex: 1; border: 1px solid black; height: ${hw}px; width: ${hw}px; margin: 0; padding: 0;`)
+            itemDiv.classList.add('itemDiv');
+            itemDiv.style.height = `${hw}px`;
+            itemDiv.style.width = `${hw}px`;
             containerDiv.appendChild(itemDiv);
             itemDiv.addEventListener('mouseover', () => {
                 updateBackgroundColor(itemDiv);
