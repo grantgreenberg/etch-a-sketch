@@ -1,15 +1,15 @@
-.body {
-    max-width: 960px; 
+.grid-container {
+    max-width: 960px;
     margin: auto;
 }
 
-.containerDiv {
+.grid-row {
     display: flex; 
     margin: 0; 
     padding: 0; 
 }
 
-.itemDiv {
+.grid-item {
     flex: 1; 
     border: 1px solid black; 
     margin: 0; 
