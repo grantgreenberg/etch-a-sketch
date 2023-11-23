@@ -14,6 +14,7 @@ function createGrid(size = 16) {
 
     const containerSize = 960;
     const cellSize = containerSize / size;
+    const initialBrightness = 1;
 
     for (let i = 0; i < size; i++) {
         const rowDiv = document.createElement('div');
@@ -27,6 +28,15 @@ function createGrid(size = 16) {
             itemDiv.style.width = `${cellSize}px`;
             itemDiv.style.height = `${cellSize}px`;
             rowDiv.appendChild(itemDiv);
+
+            let currentBrightness = initialBrightness;
+
+            itemDiv.addEventListener('mouseover', () => {
+                if (currentBrightness > 0.1) {
+                    currentBrightness -= 0.1;
+                    itemDiv.style.filter = `brightness(${currentBrightness})`;
+                }
+            });
 
             itemDiv.addEventListener('mouseover', () => {
                 updateBackgroundColor(itemDiv);
@@ -42,7 +52,17 @@ function removeAllChildNodes(parent) {
 }
 
 function updateBackgroundColor(itemDiv) {
-    itemDiv.style.backgroundColor = 'gray';
+    itemDiv.style.backgroundColor = randomColor(itemDiv);
+}
+
+function randomColor(itemDiv) {
+    if (itemDiv.style.backgroundColor == '') {
+        let red = Math.random() * 256;
+        let green = Math.random() * 256;
+        let blue = Math.random() * 256;
+
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
 }
 
 function updateGrid() {
